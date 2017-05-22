@@ -15,13 +15,25 @@ public abstract class Interval {
         this.upperEndpoint = upperEndpoint;
     }
 
+    public int getLowerEndpoint() {
+        return lowerEndpoint.getValue();
+    }
+
+    public int getUpperEndpoint() {
+        return upperEndpoint.getValue();
+    }
+
     public boolean contains(int value) {
         return isBoundedLower(value) && isBoundedUpper(value);
     }
 
-    protected abstract boolean isBoundedLower(int value);
+    protected boolean isBoundedLower(int value) {
+        return lowerEndpoint.isBoundedLower(value);
+    }
 
-    protected abstract boolean isBoundedUpper(int value);
+    protected boolean isBoundedUpper(int value) {
+        return upperEndpoint.isBoundedUpper(value);
+    }
 
     @Override
     public String toString() {
@@ -32,7 +44,9 @@ public abstract class Interval {
         return lowerEndpoint.getBoundedLowerString();
     }
 
-    protected abstract String getBoundedUpperString();
+    protected String getBoundedUpperString() {
+        return upperEndpoint.getBoundedUpperString();
+    }
 
     @Override
     public boolean equals(Object obj) {

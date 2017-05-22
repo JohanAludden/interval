@@ -16,18 +16,22 @@ public class ClosedEndpoint implements Endpoint {
         return value;
     }
 
+    @Override
     public String getBoundedLowerString() {
         return String.format("[%s", value);
     }
 
+    @Override
     public String getBoundedUpperString() {
         return String.format("%s]", value);
     }
 
+    @Override
     public boolean isBoundedLower(int v) {
         return value <= v;
     }
 
+    @Override
     public boolean isBoundedUpper(int v) {
         return v <= value;
     }
