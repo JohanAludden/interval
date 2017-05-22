@@ -16,4 +16,10 @@ public class IntervalTest {
         assertThat(interval.getLowerEndpoint(), is(1));
         assertThat(interval.getUpperEndpoint(), is(3));
     }
+
+    @Test
+    public void testToString() {
+        Interval interval = new Interval(1, 3);
+        assertThat(interval.toString(), is("[1-3]"));
+    }
 }

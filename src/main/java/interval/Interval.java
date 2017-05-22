@@ -19,4 +19,9 @@ public class Interval {
     public int getUpperEndpoint() {
         return upperEndpoint;
     }
+
+    @Override
+    public String toString() {
+        return String.format("[%s-%s]", lowerEndpoint, upperEndpoint);
+    }
 }

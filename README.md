@@ -2,8 +2,8 @@
 
 # TODO
 - [x] Have support for closed intervals [1-3]
+- [x] Have a good string representation
 - [] Have support for open intervals (1-3)
-- [] Have a good string representation
 - [] Be values classes (equals & hashCode)
 - [] Know if a value is in the range
 - [] Support mixed intervals (open and closed)
