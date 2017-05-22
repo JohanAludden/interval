@@ -1,7 +1,7 @@
 # Interval library
 
 # TODO
-- [] Have support for closed intervals [1-3]
+- [x] Have support for closed intervals [1-3]
 - [] Have support for open intervals (1-3)
 - [] Have a good string representation
 - [] Be values classes (equals & hashCode)
