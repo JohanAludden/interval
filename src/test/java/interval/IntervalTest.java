@@ -5,6 +5,7 @@ package interval;
 
 import org.junit.Test;
 
+import static org.hamcrest.CoreMatchers.not;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
@@ -21,5 +22,23 @@ public class IntervalTest {
     public void testToString() {
         Interval interval = new Interval(1, 3);
         assertThat(interval.toString(), is("[1-3]"));
+    }
+
+    @Test
+    public void testEqualsAndHashCode() {
+        Interval a = new Interval(1, 3);
+        Interval b = new Interval(1, 3);
+        Interval c = new Interval(1, 4);
+        Interval d = new Interval(0, 3);
+        Interval e = new Interval(1, 3){};
+
+        assertThat(a, is(b));
+        assertThat(b, is(a));
+        assertThat(a, is(not(c)));
+        assertThat(a, is(not(d)));
+        assertThat(a, is(not(e)));
+        assertThat(a.equals(null), is(false));
+
+        assertThat(a.hashCode(), is(b.hashCode()));
     }
 }
