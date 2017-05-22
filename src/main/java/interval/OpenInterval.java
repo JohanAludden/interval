@@ -5,7 +5,12 @@ package interval;
  */
 public class OpenInterval extends Interval {
 
-    public OpenInterval(int lowerEndpoint, int upperEndpoint) {
+    private OpenInterval(int lowerEndpoint, int upperEndpoint) {
         super(new OpenEndpoint(lowerEndpoint), new OpenEndpoint(upperEndpoint));
     }
+
+    public static Interval createOpenInterval(int lower, int upper) {
+        return new OpenInterval(lower, upper);
+    }
+
 }

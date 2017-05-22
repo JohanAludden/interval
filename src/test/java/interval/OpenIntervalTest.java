@@ -16,7 +16,7 @@ public class OpenIntervalTest {
 
     @Before
     public void setUp() {
-        interval = new OpenInterval(1, 3);
+        interval = OpenInterval.createOpenInterval(1, 3);
     }
 
     @Test
@@ -42,22 +42,19 @@ public class OpenIntervalTest {
 
     @Test
     public void testToString() {
-        OpenInterval interval = new OpenInterval(1, 3);
         assertThat(interval.toString(), is("(1-3)"));
     }
     @Test
     public void testEqualsAndHashCode() {
-        OpenInterval a = new OpenInterval(1, 3);
-        OpenInterval b = new OpenInterval(1, 3);
-        OpenInterval c = new OpenInterval(1, 4);
-        OpenInterval d = new OpenInterval(0, 3);
-        OpenInterval e = new OpenInterval(1, 3){};
+        Interval a = OpenInterval.createOpenInterval(1, 3);
+        Interval b = OpenInterval.createOpenInterval(1, 3);
+        Interval c = OpenInterval.createOpenInterval(1, 4);
+        Interval d = OpenInterval.createOpenInterval(0, 3);
 
         assertThat(a, is(b));
         assertThat(b, is(a));
         assertThat(a, is(not(c)));
         assertThat(a, is(not(d)));
-        assertThat(a, is(not(e)));
         assertThat(a.equals(null), is(false));
 
         assertThat(a.hashCode(), is(b.hashCode()));
