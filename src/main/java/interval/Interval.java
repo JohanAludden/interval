@@ -28,7 +28,9 @@ public abstract class Interval {
         return String.format("%s-%s", getBoundedLowerString(), getBoundedUpperString());
     }
 
-    protected abstract String getBoundedLowerString();
+    protected String getBoundedLowerString() {
+        return lowerEndpoint.getBoundedLowerString();
+    }
 
     protected abstract String getBoundedUpperString();
 

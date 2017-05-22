@@ -18,11 +18,6 @@ public class ClosedInterval extends Interval {
     }
 
     @Override
-    protected String getBoundedLowerString() {
-        return new ClosedEndpoint(lowerEndpoint.getValue()).getBoundedLowerString();
-    }
-
-    @Override
     protected String getBoundedUpperString() {
         return new ClosedEndpoint(upperEndpoint.getValue()).getBoundedUpperString();
     }

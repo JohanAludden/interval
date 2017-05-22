@@ -6,4 +6,6 @@ package interval;
 public interface Endpoint {
 
     int getValue();
+
+    String getBoundedLowerString();
 }
