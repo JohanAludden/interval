@@ -16,11 +16,11 @@ public class Interval {
     }
 
     public static Interval createClosedInterval(int lower, int upper) {
-        return new Interval(new ClosedEndpoint(lower), new ClosedEndpoint(upper));
+        return new Builder().closedLower(lower).closedUpper(upper).build();
     }
 
     public static Interval createOpenInterval(int lower, int upper) {
-        return new Interval(new OpenEndpoint(lower), new OpenEndpoint(upper));
+        return new Builder().openLower(lower).openUpper(upper).build();
     }
 
     public int getLowerEndpoint() {
@@ -71,5 +71,35 @@ public class Interval {
     @Override
     public int hashCode() {
         return Objects.hash(lowerEndpoint, upperEndpoint);
+    }
+
+    public static class Builder {
+
+        private Endpoint lower;
+        private Endpoint upper;
+
+        public Builder closedLower(int lower) {
+            this.lower = new ClosedEndpoint(lower);
+            return this;
+        }
+
+        public Builder openLower(int lower) {
+            this.lower = new OpenEndpoint(lower);
+            return this;
+        }
+
+        public Builder closedUpper(int upper) {
+            this.upper = new ClosedEndpoint(upper);
+            return this;
+        }
+
+        public Interval build() {
+            return new Interval(lower, upper);
+        }
+
+        public Builder openUpper(int upper) {
+            this.upper = new OpenEndpoint(upper);
+            return this;
+        }
     }
 }

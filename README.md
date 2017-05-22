@@ -14,4 +14,5 @@
 - [] Know if 2 intervals are not overlapping
 - [] Know if 1 intervals is included in an other interval
 - [] Make it generic intervals (is Comparable enough?)
+- [] Error handling
 
