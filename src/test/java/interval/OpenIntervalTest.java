@@ -1,5 +1,6 @@
 package interval;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.not;
@@ -11,11 +12,32 @@ import static org.junit.Assert.assertThat;
  */
 public class OpenIntervalTest {
 
+    private OpenInterval interval;
+
+    @Before
+    public void setUp() {
+        interval = new OpenInterval(1, 3);
+    }
+
     @Test
     public void testCreateOpenInterval() {
-        OpenInterval interval = new OpenInterval(1, 3);
         assertThat(interval.getLowerEndpoint(), is(1));
         assertThat(interval.getUpperEndpoint(), is(3));
+    }
+
+    @Test
+    public void testContainsValueBetweenLowerAndUpperEndpoints() {
+        assertThat(interval.contains(2), is(true));
+    }
+
+    @Test
+    public void testContainsValueEqualToLowerEndpoint() {
+        assertThat(interval.contains(1), is(false));
+    }
+
+    @Test
+    public void testContainsValueEqualToUpperEndpoint() {
+        assertThat(interval.contains(3), is(false));
     }
 
     @Test

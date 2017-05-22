@@ -45,5 +45,7 @@ public class OpenInterval {
         return Objects.hash(lowerEndpoint, upperEndpoint);
     }
 
-
+    public boolean contains(int value) {
+        return lowerEndpoint < value && value < upperEndpoint;
+    }
 }
