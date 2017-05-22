@@ -10,13 +10,13 @@ import static org.hamcrest.CoreMatchers.not;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
-public class IntervalTest {
+public class ClosedIntervalTest {
 
-    private Interval interval;
+    private ClosedInterval interval;
 
     @Before
     public void setUp() {
-        interval = new Interval(1, 3);
+        interval = new ClosedInterval(1, 3);
     }
 
     @Test
@@ -52,17 +52,17 @@ public class IntervalTest {
 
     @Test
     public void testToString() {
-        interval = new Interval(1, 3);
+        interval = new ClosedInterval(1, 3);
         assertThat(interval.toString(), is("[1-3]"));
     }
 
     @Test
     public void testEqualsAndHashCode() {
-        Interval a = new Interval(1, 3);
-        Interval b = new Interval(1, 3);
-        Interval c = new Interval(1, 4);
-        Interval d = new Interval(0, 3);
-        Interval e = new Interval(1, 3){};
+        ClosedInterval a = new ClosedInterval(1, 3);
+        ClosedInterval b = new ClosedInterval(1, 3);
+        ClosedInterval c = new ClosedInterval(1, 4);
+        ClosedInterval d = new ClosedInterval(0, 3);
+        ClosedInterval e = new ClosedInterval(1, 3){};
 
         assertThat(a, is(b));
         assertThat(b, is(a));
