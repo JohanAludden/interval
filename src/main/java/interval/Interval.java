@@ -24,6 +24,15 @@ public abstract class Interval {
     protected abstract boolean isBoundedUpper(int value);
 
     @Override
+    public String toString() {
+        return String.format("%s-%s", getBoundedLowerString(), getBoundedUpperString());
+    }
+
+    protected abstract String getBoundedLowerString();
+
+    protected abstract String getBoundedUpperString();
+
+    @Override
     public boolean equals(Object obj) {
         if (obj == null) {
             return false;

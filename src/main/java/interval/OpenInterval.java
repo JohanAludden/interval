@@ -19,7 +19,17 @@ public class OpenInterval extends Interval {
 
     @Override
     public String toString() {
-        return String.format("(%s-%s)", lowerEndpoint, upperEndpoint);
+        return String.format("%s-%s", getBoundedLowerString(), getBoundedUpperString());
+    }
+
+    @Override
+    protected String getBoundedLowerString() {
+        return String.format("(%s", lowerEndpoint);
+    }
+
+    @Override
+    protected String getBoundedUpperString() {
+        return String.format("%s)", upperEndpoint);
     }
 
     @Override
