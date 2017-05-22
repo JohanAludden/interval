@@ -5,7 +5,7 @@ import java.util.Objects;
 /**
  * Created by jaludden on 22/05/2017.
  */
-public abstract class Interval {
+public class Interval {
 
     protected Endpoint lowerEndpoint;
     protected Endpoint upperEndpoint;
