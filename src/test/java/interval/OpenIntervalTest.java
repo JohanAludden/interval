@@ -16,7 +16,7 @@ public class OpenIntervalTest {
 
     @Before
     public void setUp() {
-        interval = OpenInterval.createOpenInterval(1, 3);
+        interval = Interval.createOpenInterval(1, 3);
     }
 
     @Test
@@ -46,10 +46,10 @@ public class OpenIntervalTest {
     }
     @Test
     public void testEqualsAndHashCode() {
-        Interval a = OpenInterval.createOpenInterval(1, 3);
-        Interval b = OpenInterval.createOpenInterval(1, 3);
-        Interval c = OpenInterval.createOpenInterval(1, 4);
-        Interval d = OpenInterval.createOpenInterval(0, 3);
+        Interval a = Interval.createOpenInterval(1, 3);
+        Interval b = Interval.createOpenInterval(1, 3);
+        Interval c = Interval.createOpenInterval(1, 4);
+        Interval d = Interval.createOpenInterval(0, 3);
 
         assertThat(a, is(b));
         assertThat(b, is(a));

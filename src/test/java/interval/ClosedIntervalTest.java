@@ -16,7 +16,7 @@ public class ClosedIntervalTest {
 
     @Before
     public void setUp() {
-        interval = ClosedInterval.createClosedInterval(1, 3);
+        interval = Interval.createClosedInterval(1, 3);
     }
 
     @Test
@@ -57,10 +57,10 @@ public class ClosedIntervalTest {
 
     @Test
     public void testEqualsAndHashCode() {
-        Interval a = ClosedInterval.createClosedInterval(1, 3);
-        Interval b = ClosedInterval.createClosedInterval(1, 3);
-        Interval c = ClosedInterval.createClosedInterval(1, 4);
-        Interval d = ClosedInterval.createClosedInterval(0, 3);
+        Interval a = Interval.createClosedInterval(1, 3);
+        Interval b = Interval.createClosedInterval(1, 3);
+        Interval c = Interval.createClosedInterval(1, 4);
+        Interval d = Interval.createClosedInterval(0, 3);
 
         assertThat(a, is(b));
         assertThat(b, is(a));

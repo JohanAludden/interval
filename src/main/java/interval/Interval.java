@@ -15,6 +15,14 @@ public class Interval {
         this.upperEndpoint = upperEndpoint;
     }
 
+    public static Interval createClosedInterval(int lower, int upper) {
+        return new Interval(new ClosedEndpoint(lower), new ClosedEndpoint(upper));
+    }
+
+    public static Interval createOpenInterval(int lower, int upper) {
+        return new Interval(new OpenEndpoint(lower), new OpenEndpoint(upper));
+    }
+
     public int getLowerEndpoint() {
         return lowerEndpoint.getValue();
     }
