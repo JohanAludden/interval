@@ -7,10 +7,10 @@ import java.util.Objects;
  */
 public abstract class Interval {
 
-    protected int lowerEndpoint;
-    protected int upperEndpoint;
+    protected Endpoint lowerEndpoint;
+    protected Endpoint upperEndpoint;
 
-    protected Interval(int lowerEndpoint, int upperEndpoint) {
+    protected Interval(Endpoint lowerEndpoint, Endpoint upperEndpoint) {
         this.lowerEndpoint = lowerEndpoint;
         this.upperEndpoint = upperEndpoint;
     }
@@ -41,7 +41,7 @@ public abstract class Interval {
             return false;
         }
         Interval other = (Interval) obj;
-        return lowerEndpoint == other.lowerEndpoint && upperEndpoint == other.upperEndpoint;
+        return lowerEndpoint.equals(other.lowerEndpoint) && upperEndpoint.equals(other.upperEndpoint);
     }
 
     @Override

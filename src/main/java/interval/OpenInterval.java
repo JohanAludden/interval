@@ -6,15 +6,15 @@ package interval;
 public class OpenInterval extends Interval {
 
     public OpenInterval(int lowerEndpoint, int upperEndpoint) {
-        super(lowerEndpoint, upperEndpoint);
+        super(new OpenEndpoint(lowerEndpoint), new OpenEndpoint(upperEndpoint));
     }
 
     public int getLowerEndpoint() {
-        return lowerEndpoint;
+        return lowerEndpoint.getValue();
     }
 
     public int getUpperEndpoint() {
-        return upperEndpoint;
+        return upperEndpoint.getValue();
     }
 
     @Override
@@ -24,21 +24,21 @@ public class OpenInterval extends Interval {
 
     @Override
     protected String getBoundedLowerString() {
-        return new OpenEndpoint(lowerEndpoint).getBoundedLowerString();
+        return new OpenEndpoint(lowerEndpoint.getValue()).getBoundedLowerString();
     }
 
     @Override
     protected String getBoundedUpperString() {
-        return new OpenEndpoint(upperEndpoint).getBoundedUpperString();
+        return new OpenEndpoint(upperEndpoint.getValue()).getBoundedUpperString();
     }
 
     @Override
     protected boolean isBoundedLower(int value) {
-        return new OpenEndpoint(lowerEndpoint).isBoundedLower(value);
+        return new OpenEndpoint(lowerEndpoint.getValue()).isBoundedLower(value);
     }
 
     @Override
     protected boolean isBoundedUpper(int value) {
-        return new OpenEndpoint(upperEndpoint).isBoundedUpper(value);
+        return new OpenEndpoint(upperEndpoint.getValue()).isBoundedUpper(value);
     }
 }

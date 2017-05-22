@@ -6,34 +6,34 @@ package interval;
 public class ClosedInterval extends Interval {
 
     public ClosedInterval(int lowerEndpoint, int upperEndpoint) {
-        super(lowerEndpoint, upperEndpoint);
+        super(new ClosedEndpoint(lowerEndpoint), new ClosedEndpoint(upperEndpoint));
     }
 
     public int getLowerEndpoint() {
-        return lowerEndpoint;
+        return lowerEndpoint.getValue();
     }
 
     public int getUpperEndpoint() {
-        return upperEndpoint;
+        return upperEndpoint.getValue();
     }
 
     @Override
     protected String getBoundedLowerString() {
-        return new ClosedEndpoint(lowerEndpoint).getBoundedLowerString();
+        return new ClosedEndpoint(lowerEndpoint.getValue()).getBoundedLowerString();
     }
 
     @Override
     protected String getBoundedUpperString() {
-        return new ClosedEndpoint(upperEndpoint).getBoundedUpperString();
+        return new ClosedEndpoint(upperEndpoint.getValue()).getBoundedUpperString();
     }
 
     @Override
     protected boolean isBoundedLower(int value) {
-        return new ClosedEndpoint(lowerEndpoint).isBoundedLower(value);
+        return new ClosedEndpoint(lowerEndpoint.getValue()).isBoundedLower(value);
     }
 
     @Override
     protected boolean isBoundedUpper(int value) {
-        return new ClosedEndpoint(upperEndpoint).isBoundedUpper(value);
+        return new ClosedEndpoint(upperEndpoint.getValue()).isBoundedUpper(value);
     }
 }
