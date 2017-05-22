@@ -24,21 +24,21 @@ public class OpenInterval extends Interval {
 
     @Override
     protected String getBoundedLowerString() {
-        return String.format("(%s", lowerEndpoint);
+        return new OpenEndpoint(lowerEndpoint).getBoundedLowerString();
     }
 
     @Override
     protected String getBoundedUpperString() {
-        return String.format("%s)", upperEndpoint);
+        return new OpenEndpoint(upperEndpoint).getBoundedUpperString();
     }
 
     @Override
     protected boolean isBoundedLower(int value) {
-        return lowerEndpoint < value;
+        return new OpenEndpoint(lowerEndpoint).isBoundedLower(value);
     }
 
     @Override
     protected boolean isBoundedUpper(int value) {
-        return value < upperEndpoint;
+        return new OpenEndpoint(upperEndpoint).isBoundedUpper(value);
     }
 }

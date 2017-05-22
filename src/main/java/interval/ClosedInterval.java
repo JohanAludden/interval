@@ -19,21 +19,21 @@ public class ClosedInterval extends Interval {
 
     @Override
     protected String getBoundedLowerString() {
-        return String.format("[%s", lowerEndpoint);
+        return new ClosedEndpoint(lowerEndpoint).getBoundedLowerString();
     }
 
     @Override
     protected String getBoundedUpperString() {
-        return String.format("%s]", upperEndpoint);
+        return new ClosedEndpoint(upperEndpoint).getBoundedUpperString();
     }
 
     @Override
     protected boolean isBoundedLower(int value) {
-        return lowerEndpoint <= value;
+        return new ClosedEndpoint(lowerEndpoint).isBoundedLower(value);
     }
 
     @Override
     protected boolean isBoundedUpper(int value) {
-        return value <= upperEndpoint;
+        return new ClosedEndpoint(upperEndpoint).isBoundedUpper(value);
     }
 }
