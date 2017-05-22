@@ -5,7 +5,11 @@ package interval;
  */
 public class ClosedInterval extends Interval {
 
-    public ClosedInterval(int lowerEndpoint, int upperEndpoint) {
+    private ClosedInterval(int lowerEndpoint, int upperEndpoint) {
         super(new ClosedEndpoint(lowerEndpoint), new ClosedEndpoint(upperEndpoint));
+    }
+
+    public static Interval createClosedInterval(int lower, int upper) {
+        return new ClosedInterval(lower, upper);
     }
 }

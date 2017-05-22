@@ -12,7 +12,7 @@ import static org.junit.Assert.assertThat;
  */
 public class OpenIntervalTest {
 
-    private OpenInterval interval;
+    private Interval interval;
 
     @Before
     public void setUp() {

@@ -12,11 +12,11 @@ import static org.junit.Assert.assertThat;
 
 public class ClosedIntervalTest {
 
-    private ClosedInterval interval;
+    private Interval interval;
 
     @Before
     public void setUp() {
-        interval = new ClosedInterval(1, 3);
+        interval = ClosedInterval.createClosedInterval(1, 3);
     }
 
     @Test
@@ -52,23 +52,20 @@ public class ClosedIntervalTest {
 
     @Test
     public void testToString() {
-        interval = new ClosedInterval(1, 3);
         assertThat(interval.toString(), is("[1-3]"));
     }
 
     @Test
     public void testEqualsAndHashCode() {
-        ClosedInterval a = new ClosedInterval(1, 3);
-        ClosedInterval b = new ClosedInterval(1, 3);
-        ClosedInterval c = new ClosedInterval(1, 4);
-        ClosedInterval d = new ClosedInterval(0, 3);
-        ClosedInterval e = new ClosedInterval(1, 3){};
+        Interval a = ClosedInterval.createClosedInterval(1, 3);
+        Interval b = ClosedInterval.createClosedInterval(1, 3);
+        Interval c = ClosedInterval.createClosedInterval(1, 4);
+        Interval d = ClosedInterval.createClosedInterval(0, 3);
 
         assertThat(a, is(b));
         assertThat(b, is(a));
         assertThat(a, is(not(c)));
         assertThat(a, is(not(d)));
-        assertThat(a, is(not(e)));
         assertThat(a.equals(null), is(false));
 
         assertThat(a.hashCode(), is(b.hashCode()));
