@@ -15,6 +15,14 @@ public abstract class Interval {
         this.upperEndpoint = upperEndpoint;
     }
 
+    public boolean contains(int value) {
+        return isBoundedLower(value) && isBoundedUpper(value);
+    }
+
+    protected abstract boolean isBoundedLower(int value);
+
+    protected abstract boolean isBoundedUpper(int value);
+
     @Override
     public boolean equals(Object obj) {
         if (obj == null) {

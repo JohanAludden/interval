@@ -22,7 +22,13 @@ public class OpenInterval extends Interval {
         return String.format("(%s-%s)", lowerEndpoint, upperEndpoint);
     }
 
-    public boolean contains(int value) {
-        return lowerEndpoint < value && value < upperEndpoint;
+    @Override
+    protected boolean isBoundedLower(int value) {
+        return lowerEndpoint < value;
+    }
+
+    @Override
+    protected boolean isBoundedUpper(int value) {
+        return value < upperEndpoint;
     }
 }
