@@ -73,6 +73,14 @@ public class Interval {
         return Objects.hash(lowerEndpoint, upperEndpoint);
     }
 
+    public static Builder closedLower(int lower) {
+        return new Builder().closedLower(lower);
+    }
+
+    public static Builder openLower(int lower) {
+        return new Builder().openLower(lower);
+    }
+
     public static class Builder {
 
         private Endpoint lower;

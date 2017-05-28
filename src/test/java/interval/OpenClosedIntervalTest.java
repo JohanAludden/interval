@@ -2,19 +2,17 @@ package interval;
 
 import org.junit.Test;
 
-import static org.hamcrest.CoreMatchers.not;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
 /**
- * Created by jaludden on 22/05/2017.
+ * Created by jaludden on 28/05/2017.
  */
-public class OpenIntervalTest extends AbstractIntervalTest {
-
+public class OpenClosedIntervalTest extends AbstractIntervalTest {
 
     @Override
     public Interval createInterval(int lower, int upper) {
-        return Interval.createOpenInterval(lower, upper);
+        return Interval.openLower(lower).closedUpper(upper).build();
     }
 
     @Override
@@ -24,12 +22,11 @@ public class OpenIntervalTest extends AbstractIntervalTest {
 
     @Override
     protected boolean includesUpperEndpoint() {
-        return false;
+        return true;
     }
 
     @Test
     public void testToString() {
-        assertThat(interval.toString(), is("(1-3)"));
+        assertThat(interval.toString(), is("(1-3]"));
     }
-
 }
